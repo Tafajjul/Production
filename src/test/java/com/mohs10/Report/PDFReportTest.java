@@ -30,6 +30,7 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.TextAlignment;
+import com.mohs10.ActionDriver.XLUtils;
 import com.mohs10.base.StartBrowser;
 import com.mohs10.reuse.Tabl;
 
@@ -45,7 +46,20 @@ public class PDFReportTest extends StartBrowser  {
 		List <String> passTime = new ArrayList<String>();
 		List <String> skippedText = new ArrayList<String>();
 		List <String> skippedTime = new ArrayList<String>();
+												//Parametarization//
+		String excelfile = "C:\\Users\\91703\\eclipse-workspace\\pAInITe-master\\TestData\\Data.xlsx";
+		String excelsheet = "Login";
+		String ProjectN, TesterN;
 
+		ProjectN = XLUtils.getStringCellData(excelfile, excelsheet, 1,3);
+		TesterN = XLUtils.getStringCellData(excelfile, excelsheet, 1,2);
+		System.out.println("p"+ProjectN); 
+		System.out.println(TesterN);
+		
+		
+		
+		
+		
 		driver.get("file:///C:/Users/91703/.jenkins/workspace/PDF/test-output/Suite/Test.html");						  //opening .html file
 		//driver.get("file:///C:/Users/91703/Downloads/Sample%20Test%20Case1.html");						  //opening .html file
 
@@ -95,12 +109,12 @@ public class PDFReportTest extends StartBrowser  {
       
       
 //      //Script to add logo image in pdf
-//      String imgsrc = "pAInITe-master\\M10logo.png";
-//		ImageData data1 = ImageDataFactory.create(imgsrc);
-//		Image img = new Image(data1);
-//		img.scaleToFit(100f, 100f);         //image size
-//		img.setFixedPosition(450,800);     // image position
-//		document.add(img);
+      String imgsrc = "Logo\\M10logo.png";
+		ImageData data1 = ImageDataFactory.create(imgsrc);
+		Image img = new Image(data1);
+		img.scaleToFit(100f, 100f);         //image size
+		img.setFixedPosition(450,800);     // image position
+		document.add(img);
       										///Table-0 (Automation Report)///
     float [] pointColumnWidths = {260f, 260f};                                                	//fixing table dimension(columns)
     Table table = new Table(pointColumnWidths).setBorder(new SolidBorder(Color.BLACK, 1)).setBackgroundColor(Color.LIGHT_GRAY);													//Creating Table-0
@@ -109,11 +123,11 @@ public class PDFReportTest extends StartBrowser  {
     Paragraph para = new Paragraph(text);    													//adding title to paragraph
     document.add(para);																			//adding paragraph to document
   		table.addCell(new Cell().add("Project Name"));											//making Table-0 cells  
-  		table.addCell(new Cell().add("Mohs10"));
+  		table.addCell(new Cell().add(ProjectN));
   		table.addCell(new Cell().add("Started on"));
   		table.addCell(new Cell().add(Timestamp));
   		table.addCell(new Cell().add("Tester Name"));
-  		table.addCell(new Cell().add("Abhishek"));
+  		table.addCell(new Cell().add(TesterN));
   		table.addCell(new Cell().add("Tests passed/Failed/Skipped"));
   		table.addCell(new Cell().add(status));
   	//table.addCell(new Cell().setBorder(Border.NO_BORDER).setPaddingBottom(25).add(""));
