@@ -46,21 +46,24 @@ public class PDFReportTest extends StartBrowser  {
 		List <String> passTime = new ArrayList<String>();
 		List <String> skippedText = new ArrayList<String>();
 		List <String> skippedTime = new ArrayList<String>();
-												//Parametarization//
-		String excelfile = "C:\\Users\\91703\\eclipse-workspace\\pAInITe-master\\TestData\\Data.xlsx";
-		String excelsheet = "Login";
-		String ProjectN, TesterN;
+												//Parametarization//             
+		String excelfile = "TestData\\PDF.xlsx";
+		String excelsheet = "PDFVALUES";
+		String ProjectN, TesterN, HTMLPath, Screenshotspath, M10logo;
 
 		ProjectN = XLUtils.getStringCellData(excelfile, excelsheet, 1,3);
 		TesterN = XLUtils.getStringCellData(excelfile, excelsheet, 1,2);
-		System.out.println("p"+ProjectN); 
-		System.out.println(TesterN);
+		HTMLPath = XLUtils.getStringCellData(excelfile, excelsheet, 1,0);
+		Screenshotspath = XLUtils.getStringCellData(excelfile, excelsheet, 1,1);
+		M10logo = XLUtils.getStringCellData(excelfile, excelsheet, 1,4);
+//		System.out.println("p"+ProjectN); 
+//		System.out.println(TesterN);
+//		
 		
 		
 		
 		
-		
-		driver.get("file:///C:/Users/91703/.jenkins/workspace/PDF/test-output/Suite/Test.html");						  //opening .html file
+		driver.get(HTMLPath);						  //opening .html file
 		//driver.get("file:///C:/Users/91703/Downloads/Sample%20Test%20Case1.html");						  //opening .html file
 
 		String status = driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td[2]")).getText();     //TestCase status
@@ -109,7 +112,7 @@ public class PDFReportTest extends StartBrowser  {
       
       
 //      //Script to add logo image in pdf
-      String imgsrc = "Logo\\M10logo.png";
+      String imgsrc = M10logo;
 		ImageData data1 = ImageDataFactory.create(imgsrc);
 		Image img = new Image(data1);
 		img.scaleToFit(100f, 100f);         //image size
@@ -184,7 +187,7 @@ if (skippedText.isEmpty() == false ) {
 //	table3.addCell(new Cell().setBorder(Border.NO_BORDER).setPaddingBottom(25).add(""));
 	document.add(table3);}
 											////Adding screen shots to pdf////
-File file=new File("C:/Users/91703/.jenkins/workspace/PDF/TestcaseScreenshots/");
+File file=new File(Screenshotspath);
 String[] ls=file.list();																		//adding images in array
 
 	float [] pointColumnWidths4 = {260f, 260f};
@@ -200,7 +203,7 @@ String[] ls=file.list();																		//adding images in array
 			table4.addCell(new Cell().add("Test case name"));
 			table4.addCell(new Cell().add(stepname2));
 			table4.addCell(new Cell().add("Details information"));
-		String imFile = "C:/Users/91703/.jenkins/workspace/PDF/TestcaseScreenshots/"+ls[i];
+		String imFile = Screenshotspath+ls[i];
 		ImageData data = ImageDataFactory.create(imFile);  
         Image image = new Image(data);
      		table4.addCell(new Cell().add(image.scaleToFit(300, 300)));
