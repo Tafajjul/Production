@@ -23,6 +23,9 @@ public class StartBrowser {
 	 public static ExtentTest parentTest;
 	 public static ExtentTest childTest;
 	 ExtentSparkReporter sparkReporter;
+	 //keyword
+	 ExtentReports reports;
+		ExtentTest test;
 	 
 	 @BeforeTest
 	 public void generateReport()
@@ -49,8 +52,11 @@ public class StartBrowser {
 
 	  @AfterClass
 	  public void afterClass() {
+		  
 		  driver.quit();
 		  extent.flush();
+		 // extent.endTest(test);
 	  }
+	  
 
 	}

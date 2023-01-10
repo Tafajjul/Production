@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.mohs10.Report.PDFReportTest">
+      <class name="com.mohs10.scripts.AppTest">
         <methods>
           <include name="generateReport"/>
           <include name="beforeClass"/>
-          <include name="PDFreports"/>
           <include name="afterClass"/>
+          <include name="kickStart"/>
           <include name="methodName"/>
         </methods>
-      </class> <!-- com.mohs10.Report.PDFReportTest -->
+      </class> <!-- com.mohs10.scripts.AppTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

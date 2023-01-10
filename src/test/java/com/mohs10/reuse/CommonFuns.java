@@ -18,6 +18,9 @@ import com.mohs10.or.HomePage;
 			driver = StartBrowser.driver;
 		}
 		
+	
+
+		
 		// Registration process
 				public void Register(String Firstname, String Lastname, String Email, String Pwd, String ConfirmPwd) throws Exception
 				{
@@ -43,8 +46,15 @@ import com.mohs10.or.HomePage;
 					aDriver.type(HomePage.txtemail, email, "email text box");
 					aDriver.type(HomePage.txtpwd, pwd, "password text box");
 					aDriver.click(HomePage.btnlogin, "Login button");
+					//aDriver.click(HomePage.lnkLogout, "Logout link");
+				}
+				public void logout() throws Exception
+				{
+					
 					aDriver.click(HomePage.lnkLogout, "Logout link");
 				}
+				
+				
 				//invalid login process
 				public void invalidLogIn(String email, String pwd) throws Exception
 				{

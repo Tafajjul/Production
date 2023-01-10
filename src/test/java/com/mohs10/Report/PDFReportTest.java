@@ -1,17 +1,12 @@
 package com.mohs10.Report;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import com.itextpdf.io.font.FontConstants;
@@ -32,9 +27,6 @@ import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.TextAlignment;
 import com.mohs10.ActionDriver.XLUtils;
 import com.mohs10.base.StartBrowser;
-import com.mohs10.reuse.Tabl;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 public class PDFReportTest extends StartBrowser  {
   @Test
 //*****************************************************Data Fetching Script*******************************************************// 
@@ -47,8 +39,8 @@ public class PDFReportTest extends StartBrowser  {
 		List <String> skippedText = new ArrayList<String>();
 		List <String> skippedTime = new ArrayList<String>();
 												//Parametarization//             
-		String excelfile = "TestData\\PDF.xlsx";
-		String excelsheet = "PDFVALUES";
+		String excelfile = "TestData\\PDF.xlsx";	//give path of excel sheet used for parametarization
+		String excelsheet = "PDFVALUES";			//give the sheet name
 		String ProjectN, TesterN, HTMLPath, Screenshotspath, M10logo;
 
 		ProjectN = XLUtils.getStringCellData(excelfile, excelsheet, 1,3);
@@ -199,10 +191,10 @@ String[] ls=file.list();																		//adding images in array
 	for(int i=0;i<ls.length;i++) {
 		String stepname=ls[i];
 		String[] stepname1=stepname.split("\\.");
-		String stepname2 = stepname1[0];
-			table4.addCell(new Cell().add("Test case name"));
+		String stepname2 = stepname1[1];
+			table4.addCell(new Cell().add("Test step description"));
 			table4.addCell(new Cell().add(stepname2));
-			table4.addCell(new Cell().add("Details information"));
+			table4.addCell(new Cell().add("ScreenShot"));
 		String imFile = Screenshotspath+ls[i];
 		ImageData data = ImageDataFactory.create(imFile);  
         Image image = new Image(data);
