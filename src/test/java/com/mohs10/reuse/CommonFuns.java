@@ -5,6 +5,7 @@ package com.mohs10.reuse;
 
 import com.mohs10.base.StartBrowser;
 import com.mohs10.ActionDriver.Action;
+import com.mohs10.ActionDriver.SSreuseclass;
 import com.mohs10.or.HomePage;
 
 	public class CommonFuns {
@@ -18,23 +19,33 @@ import com.mohs10.or.HomePage;
 			driver = StartBrowser.driver;
 		}
 		
+		//mohs10
+		public void mohs10aboutus() throws Exception
+		{
+			StartBrowser.childTest = StartBrowser.parentTest.createNode("About us in Mohs10.io website");
+			aDriver.navigateToApplication("https://mohs10.io/");
+			aDriver.click(HomePage.aboutus, "About us link");
+		}
 	
 
 		
 		// Registration process
-				public void Register(String Firstname, String Lastname, String Email, String Pwd, String ConfirmPwd) throws Exception
+				public void Register(String Firstname, String Lastname, String Email, String Pwd, String ConfirmPwd ) throws Exception
 				{
 					StartBrowser.childTest = StartBrowser.parentTest.createNode("Register in DemoWeb shop");
 					aDriver.navigateToApplication("http://demowebshop.tricentis.com/");
+					
 					aDriver.click(HomePage.lnkRegister, "Register link");
+					
 					aDriver.click(HomePage.rbGender, "Radio button Gender");
+					
 					aDriver.type(HomePage.txtFirstname,  Firstname, "FirstName text box");
 					aDriver.type(HomePage.txtLastname, Lastname, "LastName text box");
 					aDriver.type(HomePage.txtEmail, Email, "Email text box");
 					aDriver.type(HomePage.txtPassword, Pwd, "password text box");
 					aDriver.type(HomePage.txtConfirmpassword, ConfirmPwd, "confirm password text box");
 					aDriver.click(HomePage.btnRegister, "Register button");
-					aDriver.click(HomePage.btnContinue, "Continue button");
+					//aDriver.click(HomePage.btnContinue, "Continue button");
 				}
 				
 			//Login process
@@ -42,9 +53,13 @@ import com.mohs10.or.HomePage;
 				{
 					StartBrowser.childTest = StartBrowser.parentTest.createNode("Login to DemoWeb shop");
 					aDriver.navigateToApplication("http://demowebshop.tricentis.com/");
+					
 					aDriver.click(HomePage.lnkLogin, "Login link");
+					SSreuseclass.SSReusablemethod(driver, "Step1");
 					aDriver.type(HomePage.txtemail, email, "email text box");
+					SSreuseclass.SSReusablemethod(driver, "Step2");
 					aDriver.type(HomePage.txtpwd, pwd, "password text box");
+					SSreuseclass.SSReusablemethod(driver, "Step3");
 					aDriver.click(HomePage.btnlogin, "Login button");
 					//aDriver.click(HomePage.lnkLogout, "Logout link");
 				}

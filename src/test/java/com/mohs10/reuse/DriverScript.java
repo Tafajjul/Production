@@ -6,7 +6,6 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 
 import com.mohs10.ActionDriver.ExcelUtils;
 import com.mohs10.ActionDriver.FunctionalLibrary;
@@ -16,8 +15,8 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class DriverScript extends StartBrowser 
 {
-	String inputFile = "C:\\Users\\91703\\eclipse-workspace\\pAInITe-master\\TestInput\\TestData.xlsx"; 
-	String outputFile = "C:\\Users\\91703\\eclipse-workspace\\pAInITe-master\\TestOutPut\\HybridReports.xlsx";
+	String inputFile = "C:\\Users\\Dell\\Downloads\\pAInITe-master\\pAInITe-master\\TestInput\\TestData.xlsx"; 
+	String outputFile = "C:\\Users\\Dell\\Downloads\\pAInITe-master\\pAInITe-master\\TestOutPut\\HybridReports.xlsx";
 	
 	com.relevantcodes.extentreports.ExtentReports reports;
 	ExtentTest test;
@@ -35,10 +34,10 @@ public class DriverScript extends StartBrowser
 			if(xl.getCellData("MasterTestCases", i, 2).equalsIgnoreCase("Y"))
 			{
 				//store corresponding test case into variable TCModule
-				String TCModule =xl.getCellData("MasterTestCases", i, 1); // All Test cases are stored in TCModule, which is a MasterTestCases sheet
+				String TCModule = xl.getCellData("MasterTestCases", i, 1); // All Test cases are stored in TCModule, which is a MasterTestCases sheet
 				
 				//code for generate extent reports
-				reports = new com.relevantcodes.extentreports.ExtentReports("./AutomationReports/"+TCModule+".html"+"_"+FunctionalLibrary.generateDate());
+				reports = new com.relevantcodes.extentreports.ExtentReports("./Report/"+TCModule+".html"+"_"+FunctionalLibrary.generateDate());
 				test = reports.startTest(TCModule);
 				
 				//corresponding should be iterated
@@ -72,6 +71,7 @@ public class DriverScript extends StartBrowser
 						File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
 						FileUtils.copyFile(srcFile, new File("./screenShots/"+Description+".png"));
 						String image = test.addScreenCapture("./screenShots/"+Description+".png");
+						//test.log(LogStatus.PASS, image);
 						ModuleStatus = "True";
 						}
 					

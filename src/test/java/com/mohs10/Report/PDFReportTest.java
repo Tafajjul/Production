@@ -38,8 +38,8 @@ public class PDFReportTest extends StartBrowser  {
 		List <String> passTime = new ArrayList<String>();
 		List <String> skippedText = new ArrayList<String>();
 		List <String> skippedTime = new ArrayList<String>();
-												//Parametarization//             
-		String excelfile = "TestData\\PDF.xlsx";	//give path of excel sheet used for parametarization
+												//Parameterization//             
+		String excelfile = "TestData\\PDF.xlsx";	//give path of excel sheet used for parameterization
 		String excelsheet = "PDFVALUES";			//give the sheet name
 		String ProjectN, TesterN, HTMLPath, Screenshotspath, M10logo;
 
@@ -49,14 +49,12 @@ public class PDFReportTest extends StartBrowser  {
 		Screenshotspath = XLUtils.getStringCellData(excelfile, excelsheet, 1,1);
 		M10logo = XLUtils.getStringCellData(excelfile, excelsheet, 1,4);
 //		System.out.println("p"+ProjectN); 
-//		System.out.println(TesterN);
-//		
+//		System.out.println(TesterN);	
+	
 		
 		
-		
-		
-		driver.get(HTMLPath);						  //opening .html file
-		//driver.get("file:///C:/Users/91703/Downloads/Sample%20Test%20Case1.html");						  //opening .html file
+		//driver.get(HTMLPath);						  //opening .html file
+		driver.get("C:/Users/Dell/Downloads/pAInITe-master/pAInITe-master/test-output/Suite/Test.html");						  //opening .html file
 
 		String status = driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td[2]")).getText();     //TestCase status
 		String Timestamp = driver.findElement(By.xpath("/html/body/table/tbody/tr[2]/td[2]")).getText();  //Execution start time
@@ -191,7 +189,7 @@ String[] ls=file.list();																		//adding images in array
 	for(int i=0;i<ls.length;i++) {
 		String stepname=ls[i];
 		String[] stepname1=stepname.split("\\.");
-		String stepname2 = stepname1[1];
+		String stepname2 = stepname1[0];
 			table4.addCell(new Cell().add("Test step description"));
 			table4.addCell(new Cell().add(stepname2));
 			table4.addCell(new Cell().add("ScreenShot"));

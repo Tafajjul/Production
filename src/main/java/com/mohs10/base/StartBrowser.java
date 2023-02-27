@@ -25,7 +25,7 @@ public class StartBrowser {
 	 ExtentSparkReporter sparkReporter;
 	 //keyword
 	 ExtentReports reports;
-		ExtentTest test;
+	 ExtentTest test;
 	 
 	 @BeforeTest
 	 public void generateReport()
@@ -55,7 +55,7 @@ public class StartBrowser {
 		  
 		  driver.quit();
 		  extent.flush();
-		 // extent.endTest(test);
+		  //extent.endTest(test);
 	  }
 	  
 

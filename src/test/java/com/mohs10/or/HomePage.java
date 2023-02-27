@@ -4,6 +4,11 @@ import org.openqa.selenium.By;
 
 public class HomePage {
 	
+	
+	//Mohs10 website
+	public static By aboutus = By.xpath("//li[@id='menu-item-3017']//a[@class='menu-link'][normalize-space()='About Us']");
+	
+	
 	//Categories
 	public static By lnkComputer = By.xpath("//li[@class='inactive']//a[normalize-space()='Computers']");
 	public static By lnkDigitaldownloads = By.xpath("//li[@class='inactive']//a[normalize-space()='Digital downloads']");
