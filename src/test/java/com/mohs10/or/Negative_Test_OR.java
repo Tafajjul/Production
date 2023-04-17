@@ -24,7 +24,7 @@ public class Negative_Test_OR
 		public static By username = By.xpath("//input[@name='username']");
 		public static By txtpwd = By.name("password");
 		public static By btnlogin = By.xpath("//input[@value='Log In']");
-		public static By lnkLogout = By.xpath("//a[normalize-space()='Log Out']");
+		public static By lnkLogout = By.xpath("//*[@id=\"leftPanel\"]/ul/li[8]/a");
 		
 		
 		//forget password

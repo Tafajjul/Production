@@ -6,7 +6,7 @@ public class HomePage {
 	
 	
 	//Mohs10 website
-	public static By aboutus = By.xpath("//li[@id='menu-item-3017']//a[@class='menu-link'][normalize-space()='About Us']");
+	public static By aboutus = By.xpath("//a[normalize-space()='About ']");
 	
 	
 	//Categories
@@ -30,9 +30,9 @@ public class HomePage {
 	public static By btnContinue = By.xpath("//input[@value='Continue']");
 	
 	//To login
-	public static By lnkLogin = By.xpath("//a[@href=\"/login\"]");
-	public static By txtemail = By.className("email");
-	public static By txtpwd = By.className("password");
+	public static By lnkLogin = By.linkText("Log in");
+	public static By txtemail = By.xpath("//input[@id='Email']");
+	public static By txtpwd = By.xpath("//input[@id='Password']");
 	public static By btnlogin = By.xpath("//input[@value='Log in']");
 	public static By lnkLogout = By.xpath("//a[@class='ico-logout']");
 	
@@ -69,23 +69,34 @@ public class HomePage {
 	public static By txtphCvr = By.xpath("//h1[@itemprop='name']");
 	
 	//go to shpng cart
-	public static By lnkShoppingCart = By.xpath("//span[normalize-space()='Shopping cart']");
+	public static By lnkShoppingCart = By.xpath("//span[normalize-space()='Shopping cart']"); 
 	public static By txtemptyshpngcart = By.xpath("//div[@class='order-summary-content']");
 	
 	//-------login and order--------
 	public static By lnkApparelAndShoes = By.xpath("//a[@href=\"/apparel-shoes\"]");
-	public static By imgBelt = By.xpath("//img[@src=\"http://demowebshop.tricentis.com/content/images/thumbs/0000217_casual-golf-belt_125.jpeg\"]");
-	public static By btnAddtoCart = By.xpath("//input[@id='add-to-cart-button-40']");
-	public static By chkAgree = By.xpath("//input[@id='termsofservice']");
-	public static By btnCheckout = By.xpath("//button[@id='checkout']");
-	public static By btnCntnue = By.xpath("//input[@onclick='Billing.save()']");
+	public static By frokitem = By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[1]/a/img");
+	public static By btnAddtoCart = By.xpath("//input[@id='add-to-cart-button-5']");
+	public static By acceptterms = By.xpath("//input[@id='termsofservice']"); 
+	public static By btnCheckout = By.xpath("//button[@id='checkout']"); 
+	public static By selectcountry = By.xpath("select[@id='BillingNewAddress_CountryId']");
+	public static By selectstate = By.xpath("//select[@id='BillingNewAddress_StateProvinceId']");
+	public static By cityname = By.xpath("//input[@id='BillingNewAddress_City']");
+	public static By address1 = By.xpath("//input[@id='BillingNewAddress_Address1']");
+	public static By zipcode = By.xpath("//input[@id='BillingNewAddress_ZipPostalCode']");
+	public static By phonenumber = By.xpath("//input[@id='BillingNewAddress_PhoneNumber']");
+	public static By btnCntnue1 = By.xpath("//input[@onclick='Billing.save()']");
+	//public static By  = By.xpath("");
+	
 	public static By btnBillingContinue = By.xpath("//input[@onclick='Billing.save()']");
 	public static By btnShippingContinue = By.xpath("//input[@onclick='Shipping.save()']");
 	public static By btnShpngMthdContinue = By.xpath("//input[@class='button-1 shipping-method-next-step-button']");
 	public static By btnPaymentMthdContinue = By.xpath("//input[@class='button-1 payment-method-next-step-button']");
 	public static By btnPaymentInfoContinue = By.xpath("//input[@class='button-1 payment-info-next-step-button']");
-	public static By btnConfirm = By.xpath("//input[@value='Confirm']");
+	public static By Confirmorder = By.xpath("//input[@value='Confirm']");
 	
 	//public static By lnkOrderDetails = By.xpath("//a[normalize-space()='Click here for order details.']");
-	public static By classOrderconfrmtn = By.xpath("//strong[normalize-space()='Your order has been successfully processed!']");
+	public static By ordercomplete = By.xpath("//strong[normalize-space()='Your order has been successfully processed!']");
 }
+
+
+

@@ -4,6 +4,7 @@ package com.mohs10.reuse;
 	import org.openqa.selenium.interactions.Actions;
 
 import com.mohs10.base.StartBrowser;
+import com.codoid.products.fillo.Select;
 import com.mohs10.ActionDriver.Action;
 import com.mohs10.ActionDriver.SSreuseclass;
 import com.mohs10.or.HomePage;
@@ -20,10 +21,10 @@ import com.mohs10.or.HomePage;
 		}
 		
 		//mohs10
-		public void mohs10aboutus() throws Exception
+		public void Aboutus() throws Exception
 		{
-			StartBrowser.childTest = StartBrowser.parentTest.createNode("About us in Mohs10.io website");
-			aDriver.navigateToApplication("https://mohs10.io/");
+			StartBrowser.childTest = StartBrowser.parentTest.createNode("About us of demowebshop.tricentis");
+			aDriver.navigateToApplication("http://demowebshop.tricentis.com/");
 			aDriver.click(HomePage.aboutus, "About us link");
 		}
 	
@@ -45,7 +46,8 @@ import com.mohs10.or.HomePage;
 					aDriver.type(HomePage.txtPassword, Pwd, "password text box");
 					aDriver.type(HomePage.txtConfirmpassword, ConfirmPwd, "confirm password text box");
 					aDriver.click(HomePage.btnRegister, "Register button");
-					//aDriver.click(HomePage.btnContinue, "Continue button");
+					aDriver.click(HomePage.btnContinue, "Continue button");
+					aDriver.click(HomePage.lnkLogout, "Logout link");
 				}
 				
 			//Login process
@@ -55,11 +57,11 @@ import com.mohs10.or.HomePage;
 					aDriver.navigateToApplication("http://demowebshop.tricentis.com/");
 					
 					aDriver.click(HomePage.lnkLogin, "Login link");
-					SSreuseclass.SSReusablemethod(driver, "Step1");
+					//SSreuseclass.SSReusablemethod(driver, "Step1");
 					aDriver.type(HomePage.txtemail, email, "email text box");
-					SSreuseclass.SSReusablemethod(driver, "Step2");
+					//SSreuseclass.SSReusablemethod(driver, "Step2");
 					aDriver.type(HomePage.txtpwd, pwd, "password text box");
-					SSreuseclass.SSReusablemethod(driver, "Step3");
+					//SSreuseclass.SSReusablemethod(driver, "Step3");
 					aDriver.click(HomePage.btnlogin, "Login button");
 					//aDriver.click(HomePage.lnkLogout, "Logout link");
 				}
@@ -120,8 +122,101 @@ import com.mohs10.or.HomePage;
 				aDriver.click(HomePage.lnkDigitaldownloads,"Performed click operation on Digital Downloads Link");
 				aDriver.click(HomePage.lnkJewelry,"Performed click operation on Jewelry Link");
 				aDriver.click(HomePage.lnkGiftCards,"Performed click operation on Gift Cards Link");
-			
-			  
 		  }
+		  
+		  //ordering a product
+		  public void OrderProd(String email, String pwd) throws Throwable
+		  {
+			  StartBrowser.childTest = StartBrowser.parentTest.createNode("Category links");
+				aDriver.navigateToApplication("http://demowebshop.tricentis.com/");
+				aDriver.click(HomePage.lnkLogin, "Login link");
+				aDriver.type(HomePage.txtemail, email, "email text box");
+				aDriver.type(HomePage.txtpwd, pwd, "password text box");
+				aDriver.click(HomePage.btnlogin, "Login button");
+				aDriver.click(HomePage.lnkApparelandShoes,"Performed click operation on Apparel and Shoes Link");
+				aDriver.click(HomePage.frokitem,"click on frok item");
+				aDriver.implicitWait(driver, 10);
+				aDriver.click(HomePage.btnAddtoCart,"click on add to cart button");
+				aDriver.click(HomePage.lnkShoppingCart,"click on shoppingcart to order");
+				aDriver.click(HomePage.acceptterms,"accept terms ceckbox");
+				aDriver.click(HomePage.btnCheckout,"click on checkout button");
+				aDriver.click(HomePage.btnCntnue1,"click on continue button after address");
+				aDriver.click(HomePage.btnBillingContinue, "");
+				aDriver.click(HomePage.btnShippingContinue, "");
+				aDriver.click(HomePage.btnShpngMthdContinue, "");
+				aDriver.click(HomePage.btnPaymentMthdContinue, "");
+				aDriver.click(HomePage.btnPaymentInfoContinue, "");
+				aDriver.click(HomePage.Confirmorder, "");
+				aDriver.click(HomePage.ordercomplete, "");
+				aDriver.click(HomePage.lnkLogout, "Logout link");
+		  }
+		  
+		//AutoIT Reuse functions
+//		  public void uploadWordFile() throws Exception
+//			{
+//				try {
+//				
+//				StartBrowser.childTest = StartBrowser.parentTest.createNode("Automation using Autoit tool");
+//				aDriver.navigateToApplication("https://www.ilovepdf.com/word_to_pdf");
+//				aDriver.click(AllPageObjects.selectwordfile, "Wordtopdf convert btn");
+//				
+//				Runtime.getRuntime().exec("Fileupload.exe");
+//				
+//				aDriver.click(AllPageObjects.Converttopdf, "Convert btn");
+//				
+//				Thread.sleep(3000);
+//				aDriver.click(AllPageObjects.downloadbtn, "Download the converted file");	
+//				 
+//				}
+//				catch (StaleElementReferenceException e) {
+//					
+//				}
+//				finally {
+//					Runtime.getRuntime().exec("Filedownload.exe");
+//				}
+//				  
+//				Thread.sleep(5000);
+//			}
+//		  
+		  //Verify the website title
+		  public void VerifyingWebsiteTitle() 
+		  {
+			  StartBrowser.childTest = StartBrowser.parentTest.createNode("Verifying the Title of the Application");
+			  aDriver.navigateToApplication("http://demowebshop.tricentis.com/");
+			  
+			  String actualTitle = driver.getTitle();
+			  String expTitle = "Demo Web Shop";
+			  
+			  if(actualTitle.equalsIgnoreCase(expTitle)) 
+			  {
+				
+				System.out.println("Verified Title : Test Passed   "+actualTitle); 
+			  }
+				else {
+					System.out.println("Title Not Matched : Test Failed"+expTitle); 
+			  }
+		}
+		  
+		  
+		  //Selenium Grid 
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
 	}
 

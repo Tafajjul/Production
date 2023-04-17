@@ -1,0 +1,22 @@
+
+<!-- This is for simultaneous Execution of test scripts on different browsers-->
+<!-- For sequential Execution we need to remove the parallel = "tests" command from the suite -->
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="OrangeHRM Grid Test Suite" parallel="tests">
+<parameter name="huburl" value="http://192.168.150.154:4444/wd/hub"></parameter>
+
+	<test name="Admin Login TestCase on Chrome">
+	<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="SeleniumGrid.Grid_Login"></class>
+		</classes>
+	</test>
+
+	<test name="Admin Login TestCase on Firefox">
+	<parameter name="browser" value="firefox"></parameter>
+		<classes>
+			<class name="SeleniumGrid.Grid_Login"></class>
+		</classes>
+	</test>
+</suite>

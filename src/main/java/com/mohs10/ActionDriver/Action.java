@@ -829,6 +829,20 @@ public void click(By locator, String eleName) throws Exception
 			throw e;
 		}
 	}
-	
+
+	public void zipcode(By locator, String zipCodeInput) {
+		WebElement ele;
+		//input will be 6 digit zipcode only
+		if (zipCodeInput.matches("\\d{6}")) {
+			ele=driver.findElement(locator);
+			ele.sendKeys(zipCodeInput);
+			System.out.println(zipCodeInput +" is the Zip code");
+			
+		}
+		else {
+			System.out.println("No zipcode is inputed");
+		}
+		
+	}
 
 }

@@ -3,15 +3,15 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="negative_Testing.Register_Neg_Test">
+      <class name="com.mohs10.scripts.ABG_Demo">
         <methods>
           <include name="generateReport"/>
+          <include name="FailedTestCase"/>
           <include name="beforeClass"/>
-          <include name="Reg_Existing_Username"/>
           <include name="afterClass"/>
           <include name="methodName"/>
         </methods>
-      </class> <!-- negative_Testing.Register_Neg_Test -->
+      </class> <!-- com.mohs10.scripts.ABG_Demo -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

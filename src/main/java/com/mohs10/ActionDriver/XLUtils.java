@@ -73,21 +73,21 @@ public class XLUtils
 	}
 	
 	//To Fetch the Numeric data
-	public static double getNumericCellData(String xlfile,String xlsheet,int rownum,int colnum) throws IOException
+	public static int getNumericCellData(String xlfile,String xlsheet,int rownum,int colnum) throws IOException
 	{
 		
 		fi = new FileInputStream(xlfile);
 		wb = new XSSFWorkbook(fi);
 		ws = wb.getSheet(xlsheet);
 		row = ws.getRow(rownum);
-		double data;
+		int data;
 		try 
 		{
 			cell = row.getCell(colnum);
-			data = cell.getNumericCellValue();
+			data = (int) cell.getNumericCellValue();
 		} catch (Exception e) 
 		{
-			data = 0.0;
+			data = 0;
 		}
 		wb.close();
 		fi.close();

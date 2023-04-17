@@ -160,9 +160,9 @@ public class Register_Neg_Test extends StartBrowser
 	@Test(priority = 1)
 	public static void Reg_All_InvalidCreds() throws Throwable 
 	{
-		//Testing by entering all invalid data
+		//Testing by entering all invalid data - it will get registered
 				Negative_Test_commfuns nfc = new Negative_Test_commfuns();
-				nfc.Register("134234313434", "134234313434", "12345", "12312312", "123213", "12312312", "9098374349", "12312", "Deepma500", "Deepam@123", "Deepam@123");
+				nfc.Register("kgf", "1234", "add", "city", "state", "zipcode", "phone9098374349", "ssn12312", "grishma12323", "Dipaa@601", "Dipaa@601");
 				
 				//verify by entering all invalid data
 				WebElement check = driver.findElement(By.xpath("//*[@id=\"rightPanel\"]/p"));
@@ -186,7 +186,7 @@ public class Register_Neg_Test extends StartBrowser
 	{
 		//Testing by entering registered user details
 				Negative_Test_commfuns nfc = new Negative_Test_commfuns();
-				nfc.Register("134234313434", "134234313434", "12345", "12312312", "123213", "12312312", "9098374349", "12312", "Deepma500", "Deepam@123", "Deepam@123");
+				nfc.Register("kgf", "1234", "add", "city", "state", "zipcode", "phone9098374349", "ssn12312", "grishma12323", "Dipaa@601", "Dipaa@601");
 				
 				//verify by entering all invalid data
 				WebElement check = driver.findElement(By.id("customer.username.errors"));
@@ -204,14 +204,3 @@ public class Register_Neg_Test extends StartBrowser
 				
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
