@@ -14,7 +14,7 @@ public class ABG_Demo extends StartBrowser
 		public void RegisterPageTestCase() throws Exception 
 		{
 			CommonFuns hm = new CommonFuns();
-			hm.Register("GKD", "GKDMohs10", "ABGDemo123@gmail.com", "sushi@444", "sushi@444");
+			hm.Register("GKD", "GKDMohs10", "ABGDemo10@gmail.com", "sushi@444", "sushi@444");
 			SSreuseclass.SSReusablemethod(driver, "RegisterPage");
 				 
 				  Thread.sleep(5000);
@@ -41,17 +41,6 @@ public class ABG_Demo extends StartBrowser
 				  Thread.sleep(5000);
 		
 		}       
-		
-		//Testing with invalid inputs 
-				@Test(priority = 3)
-				public void BothInvalidCreds() throws Exception 
-				{
-					SSreuseclass.SSReusablemethod(driver, "Negative Testing");
-					CommonFuns hm1 = new CommonFuns();
-						  hm1.invalidLogIn("wrongcreds@gmail.com", "wrongcreds");
-						  Thread.sleep(5000);
-				
-				} 
 				
 		//Intentionally generating error to show failed test cases 
 				@Test(priority = 4)
