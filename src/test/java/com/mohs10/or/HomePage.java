@@ -6,7 +6,7 @@ public class HomePage {
 	
 	
 	//Mohs10 website
-	public static By aboutus = By.xpath("//a[normalize-space()='About ']");
+	public static By aboutus = By.xpath("//a[normalize-space()='About us']");
 	
 	
 	//Categories
