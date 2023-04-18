@@ -15,7 +15,7 @@ public class ABG_Demo extends StartBrowser
 		{
 			SSreuseclass.SSReusablemethod(driver, "RegisterPage");
 			CommonFuns hm = new CommonFuns();
-				  hm.Register("GKD", "GKDMohs10", "GKDMohs1000@gmail.com", "Twerfghjkest@444", "Twerfghjkest@444");
+				  hm.Register("GKD", "GKDMohs10", "ABGDemo@gmail.com", "demo@444", "demo@444");
 				 
 				  Thread.sleep(5000);
 		}
