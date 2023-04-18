@@ -13,9 +13,9 @@ public class ABG_Demo extends StartBrowser
 		@Test(priority = 0)
 		public void RegisterPageTestCase() throws Exception 
 		{
-			SSreuseclass.SSReusablemethod(driver, "RegisterPage");
 			CommonFuns hm = new CommonFuns();
-				  hm.Register("GKD", "GKDMohs10", "ABGDemo@gmail.com", "demo@444", "demo@444");
+			hm.Register("GKD", "GKDMohs10", "ABGDemo@gmail.com", "sushi@444", "sushi@444");
+			SSreuseclass.SSReusablemethod(driver, "RegisterPage");
 				 
 				  Thread.sleep(5000);
 		}
@@ -24,10 +24,10 @@ public class ABG_Demo extends StartBrowser
 		@Test(priority = 1)
 		public void OrderProduct() throws Throwable 
 		{
-			SSreuseclass.SSReusablemethod(driver, "End to End Testing");
 			CommonFuns hm1 = new CommonFuns();
 			Thread.sleep(5000);
 			hm1.OrderProd("deepikamohs1@gmail.com", "DKG@123");
+			SSreuseclass.SSReusablemethod(driver, "End to End Testing");
 		
 		}             
 		
@@ -57,8 +57,8 @@ public class ABG_Demo extends StartBrowser
 				@Test(priority = 4)
 				public void FailedTestCase() throws Exception 
 				{
-					SSreuseclass.SSReusablemethod(driver, "Showing Failed Test Case");
 					CommonFuns hm1 = new CommonFuns();
+					SSreuseclass.SSReusablemethod(driver, "Showing Failed Test Case");
 						 hm1.Aboutus();
 						  Thread.sleep(5000);
 				
